@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The King's Estates | Premium Editorial</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Mr+De+Haviland&display=swap" rel="stylesheet">
+    
+    <!-- Premium Typography Selection -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=La+Belle+Aurore&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/Kings.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="grid-bg"></canvas>
+
+    <div class="cursor-follower" id="cursor"></div>
+
+    <div class="loader" id="loader">
+        <div class="loader-bg-grid"></div>
+        <div class="loader-top">
+            <span>THE KING'S ESTATES</span>
+            <span id="loader-clock">00:00:00 UTC</span>
+        </div>
+        <div class="loader-center">
+            <div class="loader-text t-bold split-loader">
+                CULTIVATING VISION
+            </div>
+            <div class="loader-progress">
+                <div class="loader-bar" id="loader-bar"></div>
+            </div>
+            <div class="loader-status">
+                <span id="loader-percent">00%</span>
+                <span id="loader-message">
+                    INITIALIZING...
+                </span>
+            </div>
+        </div>
+        <div class="loader-marquee">
+            <div class="loader-track">
+                REAL ESTATE • ACQUISITIONS • INVESTMENTS • DEVELOPMENT • LEADERSHIP • PORTFOLIO • NORTH AMERICA •
+                REAL ESTATE • ACQUISITIONS • INVESTMENTS • DEVELOPMENT • LEADERSHIP • PORTFOLIO • NORTH AMERICA •
+            </div>
+        </div>
+    </div>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            
+            <section class="hero">
+                <div class="hero-image-wrap">
+                    <img src="./assets/Kings.png" class="hero-image">
+                </div>
+                <h1 class="hero-quote t-bold c-sec split-reveal">
+                    The King's Estates <br>
+                </h1>
+                <div class="hero-marquee">
+                    <div class="hero-marquee-track">
+                        <span>"WE LOVE AND LIKE EACH OTHER, BUT NEVER AT THE COST OF OUR VISION"</span>
+                        <span>THE KING'S ESTATES ✦ VISION ✦ LEGACY ✦ ETHICAL SERVICE ✦ THE KING'S ESTATES ✦ VISION ✦ LEGACY ✦ ETHICAL SERVICE ✦</span>
+                        <span>"WE LOVE AND LIKE EACH OTHER, BUT NEVER AT THE COST OF OUR VISION"</span>
+                        <span>THE KING'S ESTATES ✦ VISION ✦ LEGACY ✦ ETHICAL SERVICE ✦ THE KING'S ESTATES ✦ VISION ✦ LEGACY ✦ ETHICAL SERVICE ✦</span>
+                    </div>
+                </div>
+                <h2 class="hero-author t-script split-reveal">- The King</h2>
+            </section>
+
+            <section class="marquee-section">
+                <div class="marquee-track" id="marquee-1">
+                    <div class="marquee-text">WE CREATE LEADERS • EVERLASTING IMPACT •</div>
+                    <div class="marquee-text">WE CREATE LEADERS • EVERLASTING IMPACT •</div>
+                </div>
+            </section>
+
+            <section class="manifesto">
+                <div class="manifesto-left">
+                    <p class="manifesto-label label-mono">
+                        THE MANIFESTO
+                    </p>
+                    <div class="manifesto-title t-bold split-reveal">
+                        THE KING'S ESTATES<br>is a<br>REAL ESTATE<br>INVESTMENT FIRM<br>using its<br>BUYING POWER<br>to change lives...
+                    </div>
+                    <div class="manifesto-divider"></div>
+                </div>
+                <div class="architecture">
+                    <div class="tower">
+                
+                        <div class="side front">
+                            <div class="tower-content">
+                                <div class="tower-marquee">
+                                    <div class="tower-track">
+                                        <span>REAL ESTATE • INVESTMENT • LEGACY • VISION • </span>
+                                        <span>REAL ESTATE • INVESTMENT • LEGACY • VISION • </span>
+                                    </div>
+                                </div>
+
+                                <div class="tower-image-wrap">
+                                    <img src="./assets/KING.png" class="tower-image">
+                                </div>
+                            
+                                <div class="tower-marquee tower-marquee-bottom">
+                                    <div class="tower-track">
+                                        <span>REAL ESTATE • INVESTMENT • LEGACY • VISION • </span>
+                                        <span>REAL ESTATE • INVESTMENT • LEGACY • VISION • </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side back"></div>
+                        <div class="side left"></div>
+                        <div class="side right"></div>
+                
+                        <div class="roof"></div>
+                
+                    </div>
+                
+                    <div class="shadow"></div>
+                </div>
+                <div class="manifesto-body">
+                    <p class="manifesto-description">
+                        We strive to provide better circumstances and improve the lives of everyone we work with. Most importantly, it begins with the people on our team.
+                    </p>
+                </div>
+            </section>
+
+            <section class="marquee-section" style="background: transparent; border-top: 2px solid #F1D780; border-bottom: 2px solid #F1D780; min-height: 20vh;">
+                <div class="marquee-track" id="marquee-2" style="color: var(--main);">
+                    <div class="marquee-text">ETHICAL SERVICE • TOP QUALITY TALENT • AMBITION •</div>
+                    <div class="marquee-text">ETHICAL SERVICE • TOP QUALITY TALENT • AMBITION •</div>
+                </div>
+            </section>
+
+            <section class="vision">
+                <div class="vision-inner">
+                    <p class="vision-label label-mono fade-up">
+                        OUR NORTH STAR
+                    </p>
+                    <h2 class="vision-title t-bold split-reveal">
+                        WE ARE BUILDING<br>
+                        THE FUTURE OF<br>
+                        <span>REAL ESTATE</span>
+                    </h2>
+                    <div class="vision-divider"></div>
+                    <div class="vision-content">
+                        <p class="vision-lead">
+                            We don't chase transactions. We cultivate leaders, create
+                            opportunities, and build an organization where exceptional people
+                            create meaningful impact, strengthen communities, and leave a legacy
+                            that extends far beyond every individual deal.
+                        </p>
+                        
+                        <p class="vision-description">
+                            Every acquisition, every partnership, and every member of our team
+                            advances one enduring vision: becoming North America's most respected
+                            real estate investment firm through integrity, disciplined execution,
+                            and uncompromising standards.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="footer">
+                <div class="footer-cta t-bold c-main magnetic">
+                    JOIN THE CRAFT
+                    <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+                        <path d="M5,35 Q100,5 200,25 T395,20" />
+                    </svg>
+                </div>
+            </section>
+
+            <footer class="editorial-footer">
+                <div class="intel-overlay">
+                    <div class="intel-column">
+                        <span class="intel-value" data-type="lot">LOT 012</span>
+                        <span class="intel-value" data-type="build">BUILD 034</span>
+                        <span class="intel-value" data-type="status">ACQUIRED</span>
+                        <span class="intel-value" data-type="state">ONLINE</span>
+                        <span class="intel-value" data-type="north">N 42°</span>
+                        <span class="intel-value" data-type="west">W 83°</span>
+                    </div>
+                    <div class="intel-column right">
+                        <span class="intel-value" data-type="portfolio">PORTFOLIO</span>
+                        <span class="intel-value" data-type="asset">ASSET 419</span>
+                        <span class="intel-value" data-type="capital">$84M</span>
+                        <span class="intel-value" data-type="grid">GRID ACTIVE</span>
+                        <span class="intel-value" data-type="sector">SECTOR 08</span>
+                        <span class="intel-value" data-type="vision">VISION</span>
+                    </div>
+                    <div class="intel-center">
+                        <div class="live-clock">
+                            <span class="clock-time">00:00:00</span>
+                            <span class="clock-zone">UTC</span>
+                        </div>
+                        <div class="feed">
+                            <div class="feed-label">
+                                LIVE ACQUISITIONS
+                            </div>
+                            <div class="feed-message">
+                                INITIALIZING...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="network-panel">
+                        <div class="network-title">
+                            ACQUISITION NETWORK
+                        </div>
+                        <svg class="network-svg" viewBox="0 0 400 280">
+                            <!-- Connections -->
+                            <line x1="70" y1="130" x2="200" y2="130" class="network-line"/>
+                            <line x1="200" y1="130" x2="330" y2="130" class="network-line"/>
+                            <line x1="200" y1="130" x2="200" y2="200" class="network-line"/>
+                            <line x1="200" y1="200" x2="200" y2="250" class="network-line"/>
+                            <line x1="200" y1="130" x2="150" y2="60" class="network-line"/>
+                            <!-- Animated Signals -->
+                            <circle class="signal s1" r="3"/>
+                            <circle class="signal s2" r="3"/>
+                            <circle class="signal s3" r="3"/>
+                            <!-- Nodes -->
+                            <g class="node" data-city="CHI" transform="translate(150 60)">
+                                <circle r="6"/>
+                                <text y="-18">CHI</text>
+                            </g>
+                            <g class="node" data-city="NYC" transform="translate(70 130)">
+                                <circle r="6"/>
+                                <text x="-22" y="-12">NYC</text>
+                            </g>
+                            <g class="node active" data-city="HQ" transform="translate(200 130)">
+                                <circle r="7"/>
+                            </g>
+                            <g class="node" data-city="DAL" transform="translate(330 130)">
+                                <circle r="6"/>
+                                <text x="10" y="-12">DAL</text>
+                            </g>
+                            <g class="node" data-city="ATL" transform="translate(200 200)">
+                                <circle r="6"/>
+                                <text x="10" y="5">ATL</text>
+                            </g>
+                            <g class="node" data-city="MIA" transform="translate(200 250)">
+                                <circle r="6"/>
+                                <text x="10" y="5">MIA</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="footer-marquee">
+                    <div class="footer-track">
+                        <span>
+                        THE KING'S ESTATES • BUILDING LEGACIES • NORTH AMERICA • REAL ESTATE • INVESTMENT •
+                        </span>
+                        <span>
+                        THE KING'S ESTATES • BUILDING LEGACIES • NORTH AMERICA • REAL ESTATE • INVESTMENT •
+                        </span>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="label-mono" style="color: rgba(241, 215, 128, 0.4);">&copy; 2026 THE KING’S ESTATES. ALL VISIONS SAFEGUARDED.</p>
+                    <p class="label-mono" style="color: rgba(241, 215, 128, 0.4);">PREMIUM EDITORIAL FRAMEWORK</p>
+                </div>
+            </footer>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+
+    <script type="module" src="script.js" defer></script>
+</body>
+</html>
