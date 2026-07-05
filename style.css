@@ -32,6 +32,7 @@ html.lenis{height:auto;}
 .loader-status{margin-top:1.5rem;display:flex;justify-content:space-between;font-family:monospace;letter-spacing:.25em;color:rgba(241,215,128,.6);}
 .loader-marquee{position:absolute;bottom:0;width:100%;overflow:hidden;border-top:1px solid rgba(241,215,128,.12);}
 .loader-track{display:flex;white-space:nowrap;font-family:var(--font-bold);color:rgba(241,215,128,.18);font-size:3rem;padding:1rem 0;}
+@media(max-width:1000px) {.loader-center{width: 90vw;}}
 
 /* --- TYPOGRAPHY UTILS --- */
 .t-bold{font-family:var(--font-bold);text-transform:uppercase;line-height:.9;}
