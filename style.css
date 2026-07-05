@@ -145,9 +145,9 @@ section{width:100vw;min-height:100vh;padding:10vh 5vw;display:flex;flex-directio
 .footer-track span{padding-right:4rem;font-size:clamp(6rem,9vw,12rem);color:rgba(241,215,128,.12);letter-spacing:.25em;}
 .intel-overlay{position: relative;pointer-events:none;display:flex;justify-content:space-between;align-items:center; padding:3rem;/*position:absolute;left:2%;top:50%;transform:translate(0%,-50%);*/}
 .intel-column{display:flex;flex-direction:column;gap:.75rem;position: relative;}
-.intel-column.right{align-items:flex-end;}
+.intel-column.right{align-items:flex-end;display: none;}
 .intel-value{font-family:monospace;font-size:1rem;letter-spacing:.25em;color:rgba(241,215,128,.22);text-transform:uppercase;}
-.intel-center{position:absolute;left:50%;top:3rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2rem;pointer-events:none;}
+.intel-center{position: relative;/*position:absolute;left:50%;top:3rem;transform:translateX(-50%);*/display:flex;flex-direction:column;align-items:center;gap:2rem;pointer-events:none;}
 .live-clock{display:flex;flex-direction:column;align-items:center;font-family:monospace;letter-spacing:.3em;}
 .clock-time{font-size:1.4rem;color:rgba(241,215,128,.95);}
 .clock-zone{font-size:.65rem;color:rgba(241,215,128,.35);margin-top:.3rem;}
@@ -166,10 +166,14 @@ section{width:100vw;min-height:100vh;padding:10vh 5vw;display:flex;flex-directio
 .footer-bottom{max-width:1600px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;padding-top:2rem;/*border-top:1px solid rgba(241, 215, 128, 0.4);*/}
 .footer-bottom p{margin:0;font-size: 1rem;}
 /* ---------- Mobile ---------- */
-@media (max-width:900px){
+@media (max-width:1000px){
 .editorial-footer{padding:5rem 2rem 2rem;}
-.intel-overlay {flex-direction: column-reverse;}
+.intel-overlay {flex-direction: column-reverse;gap: 10vh;}
+.intel-column {text-align: center;}
+.intel-center{width:90vw;}
+.feed{width:100%;}
 .footer-bottom{flex-direction:column;align-items:flex-start;gap:1rem;}
+.footer-bottom p{font-size: .8rem;}
 }
 
 /* Responsive */
