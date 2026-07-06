@@ -125,6 +125,22 @@ section{width:100vw;min-height:100vh;padding:10vh 5vw;display:flex;flex-directio
   .vision-content{flex-direction:column;gap:2rem;}
 }
 
+/* ==========================
+   FOUNDATIONS
+========================== */
+.pillars{min-height:120vh;position:relative;padding:8vw;display:flex;flex-direction:column;justify-content:center;overflow:hidden;mix-blend-mode:overlay;}
+.pillars-bg{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font-family:var(--font-bold);font-size:15vw;color:rgba(241,215,128,.05);pointer-events:none;letter-spacing:.08em;}
+.pillars-label {text-align: center;}
+.pillars-title{font-size:clamp(4rem,8vw,10rem);margin-bottom:6rem;line-height:.9;text-align: center;}
+.pillars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
+.pillar{position:relative;padding:3rem;border:1px solid rgba(241,215,128,.15);background:rgba(241,215,128,.02);backdrop-filter:blur(20px);transition:.45s;transform-style:preserve-3d;}
+.pillar:hover{border-color:rgba(241,215,128,.45);transform:perspective(1200px) rotateX(8deg) rotateY(-8deg) translateY(-10px);box-shadow:0 30px 80px rgba(241,215,128,.08);}
+.pillar-number{display:block;font-size:5rem;color:rgba(241,215,128,.15);font-family:var(--font-bold);margin-bottom:2rem;}
+.pillar h3{font-size:3rem;color:var(--main);margin-bottom:1rem;}
+.pillar p{font-size:1.25rem;line-height:1.8;color:rgba(255,255,255,.65);}
+
+@media(max-width:1000px){.pillars-grid{grid-template-columns:1fr;}}
+
 /* FOOTER / HOVER SHOWCASE */
 .footer{min-height:33vh;justify-content:flex-end;padding-bottom:5vh;padding-top: 0vh;mix-blend-mode: overlay;}
 .footer-cta{font-size:clamp(4rem,10vw,12rem);text-align:center;position:relative;display:inline-block;margin:0 auto;cursor:pointer;}

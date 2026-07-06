@@ -637,6 +637,62 @@ visionTL
     duration:1
 },"<");
 
+// ========== FOUNDATIONS ==========//
+
+const pillarsTL = gsap.timeline({
+
+    scrollTrigger:{
+
+        trigger:".pillars",
+
+        start:"top 60%",
+
+        end:"bottom 65%",
+
+        scrub:1
+
+    }
+
+});
+
+pillarsTL
+
+.from(".pillars-title .char",{
+
+    yPercent:120,
+
+    rotateX:-90,
+
+    opacity:0,
+
+    stagger:0.03,
+
+    ease:"power4.out"
+
+})
+
+.from(".pillar",{
+
+    y:120,
+
+    opacity:0,
+
+    stagger:.15,
+
+    duration:1
+
+},"<.2")
+
+.from(".pillar-number",{
+
+    x:-40,
+
+    opacity:0,
+
+    stagger:.12
+
+},"<");
+
 // ========== FOOTER ==========//
 
 gsap.to(".footer-track",{
