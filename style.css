@@ -1,13 +1,13 @@
-/* --- CORE VARIABLES --- */
-:root{--bg:#000000;--main:#F1D780;--sec:#ffffff;--accent:#F1D780;--font-bold:'Anton',sans-serif;--font-body:'Anton','Cormorant Garamond',serif;--font-script:'Heisenberg', 'La Belle Aurore','Mr De Haviland',cursive;}
 
 /* --- RESET & SETUP --- */
 * {box-sizing: border-box; padding: 0; margin: 0; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+/* --- CORE VARIABLES --- */
+:root{--bg:#000000;--main:#F1D780;--sec:#ffffff;--accent:#F1D780;--font-bold:'Anton',sans-serif;--font-body:'Anton','Cormorant Garamond',serif;--font-script:'Heisenberg', 'La Belle Aurore','Mr De Haviland',cursive;}
 
 @font-face { font-family: 'American'; src: url('./assets/American\ Captain.otf') format('opentype'); font-display: swap;}
 @font-face{font-family:'Heisenberg';src:url('./assets/Heisenberg.otf') format('truetype');font-display:swap;}
 
-body{background-color:var(--bg);color:var(--sec);font-family:var(--font-body);overflow-x:hidden;cursor:default;-webkit-font-smoothing:antialiased;overflow: hidden !important;}
+body, html { width: 100vw;height: auto;overflow-x: hidden !important; background-color:var(--bg);color:var(--sec);font-family:var(--font-body);cursor:default;-webkit-font-smoothing:antialiased;}
 
 /* Lenis Smooth Scroll Setup */
 html.lenis{height:auto;}
