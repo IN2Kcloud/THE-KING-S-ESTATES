@@ -89,82 +89,60 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 // 3. CUSTOM CURSOR FOLLOWER WITH DELAY
-const cursor = document.getElementById("cursor");
-
-let mouseX = innerWidth / 2;
-let mouseY = innerHeight / 2;
-
+const cursor = document.getElementById('cursor');
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
 let cursorX = mouseX;
 let cursorY = mouseY;
-
-window.addEventListener("mousemove", (e) => {
+let isHoveringMagnetic = false;
+window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 });
-
+// Loop for fluid cursor follow
 function renderCursor() {
-
+    // Lerp (Linear Interpolation) for the elastic delay
     cursorX += (mouseX - cursorX) * 0.15;
     cursorY += (mouseY - cursorY) * 0.15;
-
-    gsap.set(cursor, {
-        x: cursorX,
-        y: cursorY
+    
+    gsap.set(cursor, { 
+        x: cursorX, 
+        y: cursorY,
+        scale: isHoveringMagnetic ? 2.5 : 1
     });
-
     requestAnimationFrame(renderCursor);
 }
-
 requestAnimationFrame(renderCursor);
-
-// 4. MAGNETIC HOVER EFFECT
-const magnetics = document.querySelectorAll(".magnetic");
-
+// 4. MAGNETIC HOVER EFFECT (Mind-Blowing Hovers)
+const magnetics = document.querySelectorAll('.magnetic');
 magnetics.forEach((elem) => {
-
-    elem.addEventListener("mouseenter", () => {
-
-        gsap.to(cursor, {
-            scale: 2.5,
-            duration: 0.45,
-            ease: "power3.out"
-        });
-
-    });
-
-    elem.addEventListener("mousemove", (e) => {
-
+    elem.addEventListener('mousemove', (e) => {
+        isHoveringMagnetic = true;
         const rect = elem.getBoundingClientRect();
-
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
+        const h = rect.width / 2;
+        const w = rect.height / 2;
+        const x = e.clientX - rect.left - h;
+        const y = e.clientY - rect.top - w;
+        
+        // Pull the text slightly towards the mouse
         gsap.to(elem, {
             x: x * 0.2,
             y: y * 0.2,
-            duration: 0.45,
-            ease: "power3.out"
+            duration: 0.4,
+            ease: "power2.out"
         });
-
     });
-
-    elem.addEventListener("mouseleave", () => {
-
-        gsap.to(cursor, {
-            scale: 1,
-            duration: 0.5,
-            ease: "power3.out"
-        });
-
+    
+    elem.addEventListener('mouseleave', () => {
+        isHoveringMagnetic = false;
+        // Snap back to origin
         gsap.to(elem, {
             x: 0,
             y: 0,
-            duration: 0.8,
-            ease: "elastic.out(1, 0.4)"
+            duration: 0.7,
+            ease: "elastic.out(1, 0.3)"
         });
-
     });
-
 });
 // 5. TYPOGRAPHY SPLITTING (SplitType)
 const splitText = new SplitType('.split-reveal', { types: 'lines, words, chars' });
@@ -264,6 +242,26 @@ const progressTween = gsap.to(progress, {
 
     }
 
+});
+
+// =========================
+// HERO AMBIENT ANIMATION
+// =========================
+
+gsap.to(".hero-image", {
+    scale: 1.04,
+    duration: 5,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+});
+
+gsap.to(".hero-image", {
+    rotation: 2,
+    duration: 9,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
 });
 
 // =========================
@@ -416,21 +414,6 @@ gsap.to('.ambient-breathe', {
     ease: "sine.inOut"
 });
 
-// ========== NAV ==========//
-
-// Shrink nav while scrolling
-ScrollTrigger.create({
-    start:100,
-    end:99999,
-    onUpdate:self=>{
-        gsap.to(".top-nav",{
-            scale:self.scroll()>0?0.92:1,
-            padding:self.scroll()>0?"0.8rem 1.8rem":"1rem 2rem",
-            duration:.3,
-            overwrite:true
-        });
-    }
-});
 
 // ========== HERO ==========//
 const img=document.querySelector(".hero-image");
@@ -454,79 +437,6 @@ gsap.to(".hero-marquee-track",{
     duration:120,
     ease:"none",
     repeat:-1
-});
-
-// Scroll indicator
-
-gsap.fromTo(".scroll-dot",
-
-    {
-        y:0,
-        opacity:1
-    },
-
-    {
-
-        y:80,
-
-        opacity:0,
-
-        duration:1.4,
-
-        ease:"power2.in",
-
-        repeat:-1
-
-    }
-
-);
-
-gsap.to(".scroll-text",{
-
-    opacity:.35,
-
-    duration:1,
-
-    repeat:-1,
-
-    yoyo:true,
-
-    ease:"sine.inOut"
-
-});
-
-gsap.to(".scroll-indicator",{
-
-    y:8,
-
-    duration:1.8,
-
-    repeat:-1,
-
-    yoyo:true,
-
-    ease:"sine.inOut"
-
-});
-
-// =========================
-// HERO AMBIENT ANIMATION
-// =========================
-
-gsap.to(".hero-image", {
-    scale: 1.04,
-    duration: 5,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-});
-
-gsap.to(".hero-image", {
-    rotation: 2,
-    duration: 9,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
 });
 
 // ========== Manifesto ==========//
@@ -729,24 +639,25 @@ visionTL
 
 // ========== FOUNDATIONS ==========//
 
-new SplitType(".legacy-title",{
-    types:"lines,words,chars"
-});
-
-const legacyTL = gsap.timeline({
+const pillarsTL = gsap.timeline({
 
     scrollTrigger:{
-        trigger:".legacy",
-        start:"top 65%",
-        end:"bottom 70%",
+
+        trigger:".pillars",
+
+        start:"top 60%",
+
+        end:"bottom 65%",
+
         scrub:1
+
     }
 
 });
 
-legacyTL
+pillarsTL
 
-.from(".legacy-title .char",{
+.from(".pillars-title .char",{
 
     yPercent:120,
 
@@ -754,63 +665,33 @@ legacyTL
 
     opacity:0,
 
-    stagger:.03,
+    stagger:0.03,
 
     ease:"power4.out"
 
 })
 
-.from(".legacy-line",{
-
-    scaleX:0,
-
-    transformOrigin:"left",
-
-    duration:1
-
-},"<")
-
-.from(".legacy-item",{
+.from(".pillar",{
 
     y:120,
 
     opacity:0,
 
-    stagger:.18,
+    stagger:.15,
 
     duration:1
 
-},"<.2");
+},"<.2")
 
-gsap.to(".legacy-word",{
+.from(".pillar-number",{
 
-    y:-120,
+    x:-40,
 
-    ease:"none",
+    opacity:0,
 
-    scrollTrigger:{
-        trigger:".legacy",
-        start:"top bottom",
-        end:"bottom top",
-        scrub:1.5
-    }
+    stagger:.12
 
-});
-
-gsap.utils.toArray(".legacy-track").forEach((track) => {
-
-    gsap.set(track, {
-        xPercent: 0
-    });
-
-    gsap.to(track, {
-        xPercent: -50,
-        duration: 20,
-        ease: "none",
-        repeat: -1
-    });
-
-});
+},"<");
 
 // ========== FOOTER ==========//
 
