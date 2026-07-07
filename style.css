@@ -7,7 +7,7 @@
 @font-face { font-family: 'American'; src: url('./assets/American\ Captain.otf') format('opentype'); font-display: swap;}
 @font-face{font-family:'Heisenberg';src:url('./assets/Heisenberg.otf') format('truetype');font-display:swap;}
 
-body, html { width: 100vw;height: auto;overflow-x: hidden !important; background-color:var(--bg);color:var(--sec);font-family:var(--font-body);cursor:default;-webkit-font-smoothing:antialiased;}
+body, html {width: 100vw;height: auto;overflow-x: hidden !important; background-color:var(--bg);color:var(--sec);font-family:var(--font-body);cursor:default;-webkit-font-smoothing:antialiased; scroll-behavior: smooth;}
 
 /* Lenis Smooth Scroll Setup */
 html.lenis{height:auto;}

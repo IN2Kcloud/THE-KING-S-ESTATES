@@ -83,11 +83,13 @@ const lenis = new Lenis({
     smoothTouch: false,
     touchMultiplier: 2,
 });
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
 // 3. CUSTOM CURSOR FOLLOWER WITH DELAY
 const cursor = document.getElementById("cursor");
 
@@ -1125,3 +1127,32 @@ setInterval(()=>{
     });
 
 },2500);
+
+// =========================
+// SMOOTH ANCHOR LINKS (LENIS)
+// =========================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", (e) => {
+
+        const href = anchor.getAttribute("href");
+
+        // Ignore empty "#"
+        if (href === "#") return;
+
+        const target = document.querySelector(href);
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        lenis.scrollTo(target, {
+            duration: 1.8,
+            easing: (t) => 1 - Math.pow(1 - t, 4),
+            offset: -100 // adjust for your fixed navbar height
+        });
+
+    });
+
+});
