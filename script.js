@@ -678,20 +678,18 @@ gsap.to(".tower",{
 
 });
 
-
-// ========== Vision ==========//
-
+// ==============================
+// VISION SECTION
+// ==============================
 const visionTL = gsap.timeline({
     scrollTrigger:{
-        trigger:".vision",
-        start:"top 55%",
-        end:"bottom 60%",
-        scrub:1
+        trigger: ".vision",
+        start: "top 120%",
+        end: "bottom 125%",
+        scrub: 1
     }
 });
-
 visionTL
-
 .from(".vision-title .char",{
     yPercent:120,
     rotateX:-90,
@@ -699,37 +697,161 @@ visionTL
     stagger:0.03,
     ease:"power4.out"
 })
-
-.to(".vision::before",{
-    width:120,
-    duration:.5
-},0)
-
 .to(".vision-divider",{
     scaleX:1,
     duration:1,
     ease:"power3.out"
 },"<0.2")
-
-.from(".vision-lead",{
-    x:-120,
-    opacity:0,
-    duration:1
-},"<0.2")
-
-.from(".vision-description",{
-    x:120,
-    opacity:0,
-    duration:1
-},"<")
-
 .to(".vision-title span",{
     textShadow:"0 0 40px rgba(241,215,128,.45)",
     scale:1.02,
     duration:1
 },"<");
+// ==============================
+// PROCESS STEPS
+// ==============================
+gsap.utils.toArray(".process-step").forEach((step)=>{
+    gsap.from(step,{
+        y:80,
+        opacity:0,
+        duration:1,
+        ease:"power4.out",
+        scrollTrigger:{
+            trigger:step,
+            start:"top 85%",
+            end:"bottom 15%",
+            toggleActions:"play none none reverse"
+        }
+    });
+});
+// ==============================
+// STEP NUMBERS
+// ==============================
+gsap.utils.toArray(".step-number").forEach((number)=>{
+    gsap.from(number,{
+        scale:.5,
+        opacity:0,
+        duration:.9,
+        ease:"back.out(2)",
+        scrollTrigger:{
+            trigger:number,
+            start:"top 85%",
+            end:"bottom 15%",
+            toggleActions:"play none none reverse"
+        }
+    });
+});
+// ==============================
+// VERTICAL LINE
+// ==============================
+gsap.from(".process-line",{
+    scaleY:0,
+    transformOrigin:"top",
+    duration:1.5,
+    ease:"power3.out",
+    scrollTrigger:{
+        trigger:".vision-process",
+        start:"top 75%",
+        end:"bottom 25%",
+        toggleActions:"play none none reverse"
+    }
+});
 
-// ========== FOUNDATIONS ==========//
+
+// ========== SITUATIONS ========== //
+
+// Split the new title
+new SplitType(".situations-title", {
+    types: "lines, words, chars"
+});
+
+// Wrap lines (same as your other titles)
+document.querySelectorAll(".situations-title .line").forEach(line => {
+
+    const wrapper = document.createElement("div");
+    wrapper.style.overflow = "hidden";
+
+    line.parentNode.insertBefore(wrapper, line);
+    wrapper.appendChild(line);
+
+});
+
+
+// TITLE
+gsap.from(".situations-title .char",{
+
+    yPercent:120,
+    opacity:0,
+    stagger:0.025,
+    duration:1,
+    ease:"expo.out",
+
+    scrollTrigger:{
+        trigger:".situations-title",
+        start:"top 80%",
+        toggleActions:"play none none reverse"
+    }
+
+});
+
+
+// COLUMNS
+gsap.utils.toArray(".s-column").forEach((column)=>{
+
+    gsap.from(column,{
+
+        y:120,
+        opacity:0,
+        duration:1,
+        ease:"power4.out",
+
+        scrollTrigger:{
+            trigger:column,
+            start:"top 85%",
+            toggleActions:"play none none reverse"
+        }
+
+    });
+
+});
+
+
+// BACKGROUND NUMBERS
+gsap.utils.toArray(".bg-word").forEach((number)=>{
+
+    gsap.from(number,{
+
+        scale:.6,
+        opacity:0,
+        duration:1.2,
+        ease:"power3.out",
+
+        scrollTrigger:{
+            trigger:number,
+            start:"top 90%",
+            toggleActions:"play none none reverse"
+        }
+
+    });
+
+    gsap.to(number,{
+
+        y:-40,
+
+        ease:"none",
+
+        scrollTrigger:{
+            trigger:number,
+            start:"top bottom",
+            end:"bottom top",
+            scrub:1.5
+        }
+
+    });
+
+});
+
+// ========== FOUNDATIONS ========== //
 
 new SplitType(".legacy-title",{
     types:"lines,words,chars"
@@ -739,8 +861,8 @@ const legacyTL = gsap.timeline({
 
     scrollTrigger:{
         trigger:".legacy",
-        start:"top 65%",
-        end:"bottom 70%",
+        start:"top 95%",
+        end:"bottom 100%",
         scrub:1
     }
 
